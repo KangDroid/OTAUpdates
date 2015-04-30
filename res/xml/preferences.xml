@@ -108,7 +108,7 @@
         android:title="@string/ads_cat" />
 
     <SwitchPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="ads_enabled"
         android:summaryOff="@string/ads_summary_off"
         android:summaryOn="@string/ads_summary_on"
