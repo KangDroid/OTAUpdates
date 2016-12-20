@@ -49,8 +49,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.ota.updates.R;
 import com.ota.updates.RomUpdate;
 import com.ota.updates.tasks.LoadUpdateManifest;
@@ -69,9 +67,6 @@ public class MainActivity extends Activity implements Constants{
 	private Builder mPlayStoreDialog;
 
 	private boolean isLollipop;
-	
-	private AdView mAdView;
-	private AdRequest mAdRequest;
 	
 	public static ProgressBar mProgressBar;
 
@@ -148,12 +143,6 @@ public class MainActivity extends Activity implements Constants{
 		updateRomInformation();
 		updateRomUpdateLayouts();
 		updateWebsiteLayout();
-		
-		if (Preferences.getAdsEnabled(mContext)) {
-			mAdView = (AdView) findViewById(R.id.adView);
-			mAdRequest = new AdRequest.Builder().build();
-			mAdView.loadAd(mAdRequest);
-		}
 	}
 
 	@Override
@@ -171,17 +160,11 @@ public class MainActivity extends Activity implements Constants{
 	@Override
 	public void onResume() {
 		super.onResume();
-		if (mAdView != null) {
-			mAdView.resume();
-		}
 	}
 	
 	@Override
 	public void onPause() {
 		super.onPause();
-		if (mAdView != null) {
-			mAdView.pause();
-		}
 	}
 
 	@Override
